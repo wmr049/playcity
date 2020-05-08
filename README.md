@@ -294,7 +294,7 @@ cpf *__required__ | string | O cpf do usuario
 
 __Exemplo__
 
-GET     localhost:3000/api/v1/users
+POST     localhost:3000/api/v1/users
 
 
 Resposta
@@ -314,7 +314,7 @@ Request
 {
   "name": "Stefano Baldo",
   "email":"engineering-tests@ingaia.com.br",
-  "password":"5eff95c56877c84cb1e56185aa28da30",
+  "password":"XXXXXXXXXXXXXXXXX",
   "cpf":"12876507000192"
 }
 
@@ -325,14 +325,73 @@ Body
     "data": {
         "user": {
             "id": "5eb584ed078acb001710237f",
-            "email": "engineering-tests@ingaia.com.br",
-            "name": "Stefano Baldo",
-            "cpf": "12876507000192",
+            "email": "wmr049@gmail.com",
+            "name": "Milton Reis",
+            "cpf": "xxxxxxxxxxx",
             "roles": [
                 "user"
             ]
         },
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYjU4NGVkMDc4YWNiMDAxNzEwMjM3ZiIsImVtYWlsIjoiZW5naW5lZXJpbmctdGVzdHNAaW5nYWlhLmNvbS5iciIsIm5hbWUiOiJTdGVmYW5vIEJhbGRvIiwiY3BmIjoiMTI4NzY1MDcwMDAxOTIiLCJyb2xlcyI6WyJ1c2VyIl0sImlhdCI6MTU4ODk1NDM0OSwiZXhwIjoxNTg5MDQwNzQ5fQ.hYpdtUlVco2REK3yAAzPDyJWNLAAu5g-R5GJp_LM-ys"
+    }
+}
+```
+________________________________________
+
+### Autenticar um usuario
+##### POST /api/v1/users/login
+
+Autentica um usuario na API, retornando um token para que possa acessar os demais endpoints
+
+__Requesição__
+
+Parametros | Tipo | Valor
+------------------ | ------------- | -------------
+email *__required__ | string | O email do usuario a ser criado.
+password *__required__ | string | O password para login na api
+
+
+
+
+__Exemplo__
+
+POST     localhost:3000/api/v1/users/login
+
+
+Resposta
+
+Codes
+
+```
+    201         OK	                    Login criado
+    500	        Internal Server Error   Login não criado
+```
+
+Exemplo:
+200
+```
+Request
+
+{
+  "email":"wmr049@gmail.com",
+  "password":"xxxxxxxx"
+}
+
+
+Response
+Body
+{
+    "data": {
+        "user": {
+            "id": "5eb3eac82827bb4d184b76f6",
+            "email": "wmr049@gmail.com",
+            "name": "Milton Reis",
+            "cpf": "xxxxxxxxxxx",
+            "roles": [
+                "user"
+            ]
+        },
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYjNlYWM4MjgyN2JiNGQxODRiNzZmNiIsImVtYWlsIjoid21yMDQ5QGdtYWlsLmNvbSIsIm5hbWUiOiJNaWx0b24gUmVpcyIsImNwZiI6IjMwODc3MDMwODcxIiwicm9sZXMiOlsidXNlciJdLCJpYXQiOjE1ODg5NTg0NzAsImV4cCI6MTU4OTA0NDg3MH0.EIGbpcty4TA6aVLijwq2oHnlYH-G-QYzIL5plPali4k"
     }
 }
 ```
