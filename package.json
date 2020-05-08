@@ -1,0 +1,33 @@
+{
+  "name": "playcityapi",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-storage": "^2.1.0",
+    "body-parser": "^1.17.2",
+    "debug": "^3.0.1",
+    "express": "^4.15.4",
+    "geoip-lite": "^1.4.1",
+    "guid": "0.0.12",
+    "http": "0.0.0",
+    "jsonwebtoken": "^7.4.0",
+    "md5": "^2.2.1",
+    "mongoose": "^4.13.20",
+    "r2": "^2.0.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
+    "sendgrid": "^2.0.0",
+    "spotify-web-api-node": "^4.0.0",
+    "unirest": "^0.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
